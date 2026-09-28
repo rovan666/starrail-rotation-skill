@@ -9,7 +9,7 @@ energy_max: 240
 skill_points:
   basic_gain: 1
   skill_cost: 1            # 普通战技耗 1 点
-  skill_cost_enhanced: 0   # 完全燃烧状态下强化战技不耗点
+  skill_cost_enhanced: 1   # E0 强化战技耗 1 点；E1 后 0（"强化战技不消耗战技点"是 1 魂效果，bwiki 核对修正）
 energy:
   basic: 20
   skill: 0                 # 战技不回固定能量，改为恢复 65% 能量上限（见 skills.战技）

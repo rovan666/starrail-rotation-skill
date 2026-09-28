@@ -1,0 +1,53 @@
+# 排轴数据：大丽花（骨架 sync_data.py + 人工核对参数，机制描述来自上游 JSON）
+id: 1321
+name: 大丽花
+name_en: Dahlia
+element: 火
+path: 虚无
+rarity: 5
+base_speed: 96
+energy_max: 130
+skill_points:
+  basic_gain: 1
+  skill_cost: 1
+energy:
+  basic: 20
+  skill: 30
+  ult: 5
+  note: "天赋：进战恢复 35 点能量（Lv10），开局即可快速启动终结技"
+skills:
+  普攻:
+    type: 单攻
+    multiplier: 1.0              # Lv6
+    toughness: 1
+    desc: "对指定敌方单体造成 100% 火属性伤害。"
+  战技:
+    type: 扩散
+    multiplier: "1.6 主 / 相邻（Lv10）"
+    toughness: "2 主 / 1 相邻"
+    desc: "开启结界 3 回合（自身回合开始-1），随后对主目标及相邻 160% 火伤。结界期间：我方全体弱点击破效率+50%（Lv10），且敌方未处于击破状态时承受的削韧也能转化为超击破伤害（击破队核心增益）。"
+  终结技:
+    type: 群攻
+    multiplier: "3.0 全体均分（Lv10）"
+    toughness: "2（每个敌人）"
+    desc: "敌方全体陷入【败谢】4 回合：减防 18%（Lv10）并被添加所有【共舞者】属性的弱点；随后造成 300% 全体均分火伤。"
+  天赋:
+    type: 弹射
+    multiplier: "追加 5 次×30%（Lv10）"
+    toughness: "弹射 5 段（每段按设定，待实测）"
+    desc: "进战回 35 能；自身与开战队友（缺位时取击破特攻最高者）成为【共舞者】：攻击击破状态目标时削韧转化为 60% 超击破伤害（Lv10）。另一位共舞者攻击后大丽花发动追加攻击（每回合最多 1 次），每次命中击破状态目标再转化 200% 超击破（Lv10）。"
+ult_mode: 充能型
+talent:
+  - "共舞者机制决定开战队形：开战位要放主 C（流萤），确保共舞者=流萤"
+buffs:
+  - name: 结界（击破效率）
+    duration: 3
+    effect: "全队击破效率+50%；未击破目标削韧转超击破"
+    granted_by: skill
+  - name: 败谢
+    duration: 4
+    effect: "敌方减防 18%+被添加共舞者属性弱点"
+    granted_by: ult
+eidolons: {}
+version: "4.x（登场版本待核）"
+notes: "来源：Mar-7th/StarRailRes（2026-09 拉取），数值为上游 Lv6/Lv10 参数直译；秘技进战直接开结界。排轴要点：战技结界覆盖与终结技败谢窗口对齐主 C 爆发。E0 基准。"

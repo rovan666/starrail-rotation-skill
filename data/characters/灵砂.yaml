@@ -1,0 +1,49 @@
+# 排轴数据：灵砂（骨架 sync_data.py + 人工核对参数）
+id: 1222
+name: 灵砂
+name_en: Lingsha
+element: 火
+path: 丰饶
+rarity: 5
+base_speed: 98
+energy_max: 110
+skill_points:
+  basic_gain: 1
+  skill_cost: 1
+energy:
+  basic: 20
+  skill: 30
+  ult: 5
+skills:
+  普攻:
+    type: 单攻
+    multiplier: 1.0              # Lv6
+    toughness: 1
+    desc: "对指定敌方单体造成 100% 火属性伤害。"
+  战技:
+    type: 群攻
+    multiplier: "0.8（每个敌人，Lv10）"
+    toughness: "1（每个敌人）"
+    desc: "群攻 80% 火伤+全队奶（14% 攻击+420，Lv10），使【浮元】行动提前 20%；浮元在场时施放战技额外+3 次浮元行动次数。"
+  终结技:
+    type: 群攻
+    multiplier: "1.5（每个敌人，Lv10）"
+    toughness: "2（每个敌人）"
+    desc: "敌方全体陷入【醇醉】：受到的击破伤害+25%，持续 2 回合（Lv10）；群攻 150% 火伤+全队奶，使浮元行动提前 100%。"
+  天赋:
+    type: 群攻
+    multiplier: "浮元追加：群攻 75% + 随机单体 75%（Lv10，优先打韧性>0 且有火弱点的目标）"
+    toughness: "浮元追加 1（每个敌人，待实测）"
+    desc: "施放战技召唤【浮元】：90 速，初始 3 次行动，最多累计 5 次；行动时追加群攻+解全队 1 个负面+奶。次数归零或灵砂倒下时消失。"
+ult_mode: 充能型
+talent:
+  - "浮元是独立跑条单位：排轴时把战技/终结技的拉条用在浮元出手密度上，击破队中浮元群攻是重要削韧来源"
+buffs:
+  - name: 醇醉
+    duration: 2
+    effect: "敌方受到击破伤害+25%"
+    granted_by: ult
+eidolons:
+  1: "减防类增益（击破队减防堆叠组件之一，社区口径约 20%）"
+version: "2.5"
+notes: "来源：Mar-7th/StarRailRes（2026-09），数值为上游 Lv6/Lv10 参数直译；秘技：进战立即召唤浮元+敌方全体醇醉。E0 基准。"

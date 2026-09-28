@@ -1,0 +1,53 @@
+# 排轴数据：星期日（人工校对版，骨架来自 sync_data.py + Mar-7th/StarRailRes，机制经社区共识核对）
+id: 1313
+name: 星期日
+element: 虚数
+path: 同谐
+rarity: 5
+base_speed: 96
+energy_max: 130
+skill_points:
+  basic_gain: 1
+  skill_cost: 1            # 对【蒙福者】施放战技后恢复 1 点（实际 0 耗）
+energy:
+  basic: 20
+  skill: 30
+  ult: 5
+skills:
+  普攻:
+    type: 单攻
+    multiplier: 1.0
+    toughness: 1
+    desc: "对指定敌方单体造成 100% 攻击力虚数伤害。"
+  战技:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "使指定我方单体及其召唤物/忆灵立即行动，伤害提高 30%（Lv10）2 回合；目标有召唤物/忆灵则额外 +50%（合计 80%）。对蒙福者施放后回 1 战技点。对同谐角色无法触发立即行动。"
+  终结技:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "为目标恢复 20% 能量上限（Lv10），目标及其召唤物成为【蒙福者】3 回合：暴伤提高（=星期日暴伤 30%+12%，Lv10）。仅对最新目标生效。"
+  天赋:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "施放战技时目标暴击率 +20%（Lv10），持续 3 回合。"
+  秘技:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "下次战斗星期日首次对我方放技能时，目标伤害 +50%，持续 2 回合。"
+ult_mode: 能量型
+talent:
+  - "召唤物/忆灵专拐：拉条同时拉忆灵（阿格莱雅衣匠、景元神君等），增伤对有召唤物目标翻倍"
+buffs:
+  - name: 蒙福者
+    duration: 3
+    effect: "暴伤 +星期日暴伤×30%+12%"
+    granted_by: ult
+eidolons:
+  1: "战技增伤数值提高（数值以游戏内为准）"
+version: "2.7"
+notes: "骨架数值来自 Mar-7th/StarRailRes（2026-09 拉取，倍率取 Lv6/Lv10）。E0 SP 纪律：对蒙福者放战技净耗 0，非蒙福者净耗 1；大招回能对 350 能角色（阿格莱雅）=70 点。养成：速度卡在主 C 之后（阿格队约 134~140）、暴伤主堆。"

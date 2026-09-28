@@ -1,0 +1,53 @@
+# 排轴数据：刻律德菈（人工校对版，骨架来自 sync_data.py + Mar-7th/StarRailRes，机制按技能描述整理）
+id: 1412
+name: 刻律德菈
+element: 风
+path: 同谐
+rarity: 5
+base_speed: 99
+energy_max: 130
+skill_points:
+  basic_gain: 1
+  skill_cost: 1
+energy:
+  basic: 20
+  skill: 30
+  ult: 5
+skills:
+  普攻:
+    type: 单攻
+    multiplier: 1.0
+    toughness: 1
+    desc: "对指定敌方单体造成 100% 攻击力风伤。"
+  战技:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "使目标获得【军功】并 +1 充能（上限 8）。充能达 6 自动升【爵位】并解控：战技伤害暴伤 +72%（Lv10）、全属性抗性穿透 +10%（Lv10）；持爵位者放战技触发【奇袭】，奇袭后耗 6 充能退回军功。军功仅对最新目标生效。"
+  终结技:
+    type: 群攻
+    multiplier: 2.4        # Lv10，240% 攻击力
+    toughness: 2           # 群攻终结技默认 2 格（待实测）
+    desc: "+2 充能；对敌方全体 240% 风伤；场上无军功持有者时优先给队伍 1 号位。"
+  天赋:
+    type: 辅助
+    multiplier: 0.6        # 附加伤害 Lv10 = 刻律 60% 攻击力，最多 20 次（放终结技重置）
+    toughness: 0
+    desc: "军功持有者攻击力提高（=刻律攻击 24%，Lv10）；其施放普攻/战技时刻律 +1 充能（奇袭期间不给）；其攻击后刻律附加 1 次 60% 风伤（20 次上限）。换目标时充能清零。"
+  秘技:
+    type: 辅助
+    multiplier: 0
+    toughness: 0
+    desc: "进战自动对军功持有者免费放 1 次战技（不耗点，+1 充能）。"
+ult_mode: 能量型
+talent:
+  - "军功/爵位体系：集中投资单核主 C，换目标清空充能——全程锁死 1 号位主 C（白厄/那刻夏等战技输出 C 收益最高）"
+buffs:
+  - name: 爵位
+    duration: 至奇袭后
+    effect: "战技暴伤 +72%、全抗穿透 +10%"
+    granted_by: skill
+eidolons:
+  1: "充能效率与附加伤害提高（数值以游戏内为准）"
+version: "3.6（待核）"
+notes: "骨架数值来自 Mar-7th/StarRailRes（2026-09 拉取，倍率取 Lv6/Lv10）。终结技削韧为默认表估值，待实测。注意爵位增益限定【战技伤害】，普攻/变身外伤害不吃——配白厄时增益集中在弑魂焚诏反击与变身前战技。"

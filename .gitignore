@@ -1,0 +1,4 @@
+# 上游原始数据（体积大，随时可用 scripts/sync_data.py 重新拉取）
+data/upstream/
+__pycache__/
+*.pyc

@@ -1,0 +1,58 @@
+# 排轴数据：流萤（人工校对版，骨架字段来自 sync_data.py + Mar-7th/StarRailRes）
+id: 1310
+name: 流萤
+element: 火
+path: 毁灭
+rarity: 5
+base_speed: 104
+energy_max: 240
+skill_points:
+  basic_gain: 1
+  skill_cost: 1            # 普通战技耗 1 点
+  skill_cost_enhanced: 0   # 完全燃烧状态下强化战技不耗点
+energy:
+  basic: 20
+  skill: 0                 # 战技不回固定能量，改为恢复 65% 能量上限（见 skills.战技）
+  ult: 5
+  note: "普通战技固定恢复 156 点能量（240×65%）；完全燃烧期间不回能，靠退出后再启动"
+skills:
+  普攻:
+    type: 单攻
+    multiplier: 1.4
+    toughness: 1
+    desc: "对指定敌方单体造成等同于装甲「萨姆」140%攻击力的火属性伤害。"
+  战技:
+    type: 单攻
+    multiplier: 2.5
+    toughness: 2
+    desc: "消耗 40% 生命上限，固定恢复 156 点能量，造成 250% 攻击力火伤；下次行动提前 25%。"
+  终结技:
+    type: 强化
+    multiplier: 0
+    toughness: 0
+    desc: "进入「完全燃烧」：立即行动，速度+75，弱点击破效率+50%，敌方受击破伤害+20%（随攻击结束）。"
+  强化普攻:
+    type: 单攻
+    multiplier: 2.8
+    toughness: 1
+    desc: "回复 20% 生命上限，造成 280% 攻击力火伤。"
+  强化战技:
+    type: 扩散
+    multiplier: "2.5+3.6×击破特攻(上限计入360%) 主目标 / 1.25+0.1×击破特攻 相邻"
+    toughness: "2 主 / 1 相邻"
+    desc: "回复生命，为单体添加火弱点 2 回合；伤害与击破特攻挂钩，是核心削韧与输出手段。"
+ult_mode: 激活型            # 能量满后激活，进入强化状态而非直接伤害
+talent:
+  - "生命越低减伤越高（≤40% 血时达最大 20% 减伤）；完全燃烧期间减伤常驻+效果抵抗提高"
+  - "战斗开始能量不足 50% 时补足至 50%；能量充满时解除全部负面"
+buffs:
+  - name: 完全燃烧
+    duration: 3              # 倒计时回合（倒计时固定速度 70）
+    effect: "速度+75，击破效率+50%；强化战技耗点 0"
+    granted_by: ult
+eidolons:
+  1: "强化战技削韧效率额外 +50%（总 +100%）"
+  2: "击破弱点后行动提前 100%（再动）"
+  6: "火抗性穿透 20%（完全燃烧期间）"
+version: "2.3"
+notes: "骨架数值来自 Mar-7th/StarRailRes（2026-09 拉取）；削韧按 references/combat-mechanics.md 通用表填写；强化战技倍率结构按技能描述核对。E0 基准。"

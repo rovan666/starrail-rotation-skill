@@ -38,7 +38,7 @@ UPSTREAM_DIR = ROOT / "data" / "upstream"
 CHAR_DIR = ROOT / "data" / "characters"
 
 SKILL_TYPE_MAP = {"Normal": "普攻", "BPSkill": "战技", "Ultra": "终结技",
-                  "Talent": "天赋", "Maze": "秘技"}
+                  "Talent": "天赋", "Maze": "秘技", "ElationDamage": "欢愉技"}
 # 跳过地图普攻等战斗外技能；带 "11" 前缀的为重复形态（与后 6 位相同 ID 重复）
 SKIP_TYPES = {"MazeNormal", ""}
 
@@ -81,7 +81,10 @@ def gen_character(query: str) -> Path:
     spd = promos[char["id"]]["values"][0]["spd"]["base"]
 
     def skill_block(slot: str, s: dict) -> str:
-        mult = s["params"][-1][0] if s.get("params") else None
+        # 上游 params 含溢出等级：普攻数组 10 级取 Lv6，战技/终结技/天赋 15 级取 Lv10
+        params = s.get("params") or []
+        idx = 5 if len(params) == 10 else 9 if len(params) >= 15 else len(params) - 1
+        mult = params[idx][0] if params else None
         lines = [
             f"  {slot}:",
             f"    type: {s.get('effect_text', 'TODO')}",
@@ -105,7 +108,7 @@ def gen_character(query: str) -> Path:
             continue
         base = SKILL_TYPE_MAP[s["type"]]
         slot_count[base] = slot_count.get(base, 0) + 1
-        slot = base if slot_count[base] == 1 else f"{base}_强化"
+        slot = base if slot_count[base] == 1 else f"{base}_强化{slot_count[base] - 1 if slot_count[base] > 2 else ''}"
         skill_sections.append(skill_block(slot, s))
 
     name = char["name"]
